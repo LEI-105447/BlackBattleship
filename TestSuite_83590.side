@@ -1,0 +1,1120 @@
+{
+  "id": "d9a04c5a-5a2d-41d1-9565-28146419e1fc",
+  "version": "2.0",
+  "name": "TestSuite_83590",
+  "url": "https://papergames.io/en/battleship",
+  "tests": [
+    {
+      "id": "1b199378-2b4d-4aaf-aa3b-363ec09c40e5",
+      "name": "UserStoryTest1",
+      "commands": [
+        {
+          "id": "52b79363-7f2b-41c3-bfb4-9e9d7c2b85e1",
+          "comment": "Abrir a página do jogo Battleship",
+          "command": "open",
+          "target": "/en/battleship",
+          "targets": [
+            [
+              "/en/battleship",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "e55f549a-fa60-4253-8bd1-5c349f3248ed",
+          "comment": "Esperar que a página carregue",
+          "command": "pause",
+          "target": "2000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "ac245e99-be6d-4747-8417-caab3d54d52f",
+          "comment": "Verificar que o modo 'Play with a friend' está disponível",
+          "command": "assertElementPresent",
+          "target": "xpath=//app-juicy-button[contains(.,'Play with a friend')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "4acdad9d-9253-4456-b826-db4b55818305",
+          "comment": "Verificar que o modo 'Play vs robot' está disponível",
+          "command": "assertElementPresent",
+          "target": "xpath=//app-juicy-button[contains(.,'Play vs robot')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1fb1822c-1f53-4c15-ae8f-d95ac417eb6d",
+          "comment": "Verificar que o modo 'Create tournament' está disponível",
+          "command": "assertElementPresent",
+          "target": "xpath=//app-juicy-button[contains(.,'Create tournament')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "4f674821-9c97-4d6a-b84f-c64db665ed78",
+          "comment": "Verificar que o modo 'Play online' está disponível",
+          "command": "assertElementPresent",
+          "target": "xpath=//app-juicy-button[contains(.,'Play online')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1f44b51c-79e1-441e-8512-08675cfcd016",
+          "comment": "Pausa final para ver o resultado antes de terminar",
+          "command": "pause",
+          "target": "4000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "b5b705bd-e506-4659-95b2-c95484ac7f4f",
+          "comment": "Fechar a janela do navegador",
+          "command": "close",
+          "target": "",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "6a1b4225-50f3-4270-897d-b4c6c224883f",
+      "name": "UserStoryTest2",
+      "commands": [
+        {
+          "id": "52b79363-7f2b-41c3-bfb4-9e9d7c2b85e1",
+          "comment": "Abrir a página do jogo Battleship",
+          "command": "open",
+          "target": "/en/battleship",
+          "targets": [
+            [
+              "/en/battleship",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "f36030ec-b8d2-4ed1-b760-1bc1d6603198",
+          "comment": "Definir o tamanho da janela do navegador",
+          "command": "setWindowSize",
+          "target": "1036x697",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1b2567f8-15fb-40eb-8fdd-b1360c62cb2a",
+          "comment": "Clicar em 'Play vs robot' para abrir o diálogo de registo",
+          "command": "click",
+          "target": "css=.w-100:nth-child(2) > .btn .flex-grow-1",
+          "targets": [
+            [
+              "css=.w-100:nth-child(2) > .btn .flex-grow-1",
+              "css:finder"
+            ],
+            [
+              "xpath=//app-juicy-button[2]/button/span[2]/span",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "cdc44f1b-5701-4099-9857-a16d36ea024e",
+          "comment": "Esperar que o diálogo termine a animação de abertura",
+          "command": "pause",
+          "target": "2000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "7e3b94cb-5372-4804-a080-6e56c65eca5d",
+          "comment": "Verificar que o diálogo pergunta 'Who are you?'",
+          "command": "assertElementPresent",
+          "target": "xpath=//mat-dialog-container[contains(.,'Who are you?')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "6217f712-4936-4d68-b9ea-cb2eeadce8a5",
+          "comment": "Escrever o nickname de convidado",
+          "command": "executeScript",
+          "target": "var i=document.querySelector('.input-xl'); var s=Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set; s.call(i,'Tester83590'); i.dispatchEvent(new Event('input',{bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "3eaa8751-c385-42bb-aed5-da51cf7073f5",
+          "comment": "Esperar que o site valide o nickname",
+          "command": "pause",
+          "target": "1000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c0d16e05-8ad6-4a08-a5b2-8344b33c9461",
+          "comment": "Clicar em 'Continue' para confirmar o nickname",
+          "command": "click",
+          "target": "css=.p-3 > .btn",
+          "targets": [
+            [
+              "css=.p-3 > .btn",
+              "css:finder"
+            ],
+            [
+              "xpath=//button[@type='submit']",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=//mat-dialog-container[@id='mat-mdc-dialog-serverApp0']/div/div/app-guest-registration-dialog/form/app-dialog-layout/div/footer/button",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//footer/button",
+              "xpath:position"
+            ],
+            [
+              "xpath=//button[contains(.,'Continue')]",
+              "xpath:innerText"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "9d6f8075-494f-4928-9595-d6f7b2479565",
+          "comment": "Esperar pela entrada na sala",
+          "command": "pause",
+          "target": "3000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "3b3ef395-aea3-4af1-a0f9-c41d777e4674",
+          "comment": "Verificar se estou numa sala de jogo",
+          "command": "executeScript",
+          "target": "return window.location.pathname.includes('/r/')",
+          "targets": [],
+          "value": "inRoom"
+        },
+        {
+          "id": "7f453624-7d23-466e-ad07-b8885b890ada",
+          "comment": "Verificar que entrei na sala de jogo",
+          "command": "assert",
+          "target": "inRoom",
+          "targets": [],
+          "value": "true"
+        },
+        {
+          "id": "60d31853-27ff-4819-8546-18c418587bad",
+          "comment": "Pausa final para ver o resultado antes de terminar",
+          "command": "pause",
+          "target": "4000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "83e3ba71-cc60-48e6-95dd-ea910c3b360c",
+          "comment": "Fechar a janela do navegador",
+          "command": "close",
+          "target": "",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "8fa6c921-72ec-4091-aad9-efa6ceb6f7d7",
+      "name": "UserStoryTest3",
+      "commands": [
+        {
+          "id": "52b79363-7f2b-41c3-bfb4-9e9d7c2b85e1",
+          "comment": "Abrir a página do jogo Battleship",
+          "command": "open",
+          "target": "/en/battleship",
+          "targets": [
+            [
+              "/en/battleship",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "f36030ec-b8d2-4ed1-b760-1bc1d6603198",
+          "comment": "Definir o tamanho da janela do navegador",
+          "command": "setWindowSize",
+          "target": "1036x697",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1b2567f8-15fb-40eb-8fdd-b1360c62cb2a",
+          "comment": "Clicar em 'Play vs robot' para jogar contra o computador",
+          "command": "click",
+          "target": "css=.w-100:nth-child(2) > .btn .flex-grow-1",
+          "targets": [
+            [
+              "css=.w-100:nth-child(2) > .btn .flex-grow-1",
+              "css:finder"
+            ],
+            [
+              "xpath=//app-juicy-button[2]/button/span[2]/span",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "46f4099d-8e4b-4316-898b-d09baacf350e",
+          "comment": "Esperar pelo diálogo de registo, se for pedido",
+          "command": "pause",
+          "target": "2000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c321798e-d051-42a8-8467-dadd6eb7a020",
+          "comment": "Verificar se o site pede o nickname (só acontece a quem ainda não jogou como convidado)",
+          "command": "executeScript",
+          "target": "return !!document.querySelector('.input-xl')",
+          "targets": [],
+          "value": "hasDialog"
+        },
+        {
+          "id": "58733dd8-c250-472b-b7e6-154d49a9888d",
+          "comment": "Se o diálogo de registo aparecer",
+          "command": "if",
+          "target": "${hasDialog}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "6217f712-4936-4d68-b9ea-cb2eeadce8a5",
+          "comment": "Escrever o nickname de convidado no diálogo de registo",
+          "command": "executeScript",
+          "target": "var i=document.querySelector('.input-xl'); var s=Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set; s.call(i,'Tester83590'); i.dispatchEvent(new Event('input',{bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "3ebd0125-9297-4a6f-bcf9-765afc2b30f1",
+          "comment": "Esperar que o site valide o nickname",
+          "command": "pause",
+          "target": "1000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c0d16e05-8ad6-4a08-a5b2-8344b33c9461",
+          "comment": "Clicar em 'Continue' para confirmar o nickname",
+          "command": "click",
+          "target": "css=.p-3 > .btn",
+          "targets": [
+            [
+              "css=.p-3 > .btn",
+              "css:finder"
+            ],
+            [
+              "xpath=//button[@type='submit']",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=//mat-dialog-container[@id='mat-mdc-dialog-serverApp0']/div/div/app-guest-registration-dialog/form/app-dialog-layout/div/footer/button",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//footer/button",
+              "xpath:position"
+            ],
+            [
+              "xpath=//button[contains(.,'Continue')]",
+              "xpath:innerText"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "d723ae6a-4075-4dd3-aa35-57483f8abadc",
+          "comment": "Fim da condição do diálogo de registo",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d1c44af5-10b5-4830-b423-57236e3a9c83",
+          "comment": "Esperar que o tabuleiro apareça",
+          "command": "waitForElementPresent",
+          "target": "css=table.table-board",
+          "targets": [
+            [
+              "css=.hover",
+              "css:finder"
+            ]
+          ],
+          "value": "10000"
+        },
+        {
+          "id": "5565af82-0d33-4efd-b2c5-122957e82c8a",
+          "comment": "Esperar que o aviso 'It's your turn!' desapareça",
+          "command": "pause",
+          "target": "4000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "bf6042a5-3400-41c7-94bc-ee1daa20cfaa",
+          "comment": "Disparar sobre a casa A1 do tabuleiro do adversário",
+          "command": "click",
+          "target": "xpath=(//table[contains(@class,'table-board')])[2]//td[contains(@class,'cell-0-0')]",
+          "targets": [
+            [
+              "css=.target",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "ce729a10-8e40-4bd8-ae6c-b3621a5879c8",
+          "comment": "Esperar que o disparo seja marcado no tabuleiro",
+          "command": "pause",
+          "target": "2500",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "cb3dc37d-b9b6-418d-ad31-8fa14ff24e3c",
+          "comment": "Verificar que a casa disparada ficou marcada (falha ou acerto)",
+          "command": "assertElementPresent",
+          "target": "xpath=(//table[contains(@class,'table-board')])[2]//td[contains(@class,'cell-0-0')]//*[contains(@class,'hit')]",
+          "targets": [
+            [
+              "xpath=(//table[contains(@class,'table-board')])[2]//td[contains(@class,'cell-0-0')]//*[contains(@class,'hit')]",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "66873e4b-e593-40bf-9962-7c09050f1451",
+          "comment": "Pausa final para ver o resultado antes de terminar",
+          "command": "pause",
+          "target": "4000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "73e282cc-df08-4dff-81fa-273feb98bf88",
+          "comment": "Fechar a janela do navegador",
+          "command": "close",
+          "target": "",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "ada93b14-ae98-44b1-8971-73c10765c6c7",
+      "name": "UserStoryTest4",
+      "commands": [
+        {
+          "id": "52b79363-7f2b-41c3-bfb4-9e9d7c2b85e1",
+          "comment": "Abrir a página do jogo Battleship",
+          "command": "open",
+          "target": "/en/battleship",
+          "targets": [
+            [
+              "/en/battleship",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "f36030ec-b8d2-4ed1-b760-1bc1d6603198",
+          "comment": "Definir o tamanho da janela do navegador",
+          "command": "setWindowSize",
+          "target": "1036x697",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1b2567f8-15fb-40eb-8fdd-b1360c62cb2a",
+          "comment": "Clicar em 'Play vs robot' para jogar contra o computador",
+          "command": "click",
+          "target": "css=.w-100:nth-child(2) > .btn .flex-grow-1",
+          "targets": [
+            [
+              "css=.w-100:nth-child(2) > .btn .flex-grow-1",
+              "css:finder"
+            ],
+            [
+              "xpath=//app-juicy-button[2]/button/span[2]/span",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "80ef80b4-c91b-4e59-8360-f312b54d402f",
+          "comment": "Esperar pelo diálogo de registo, se for pedido",
+          "command": "pause",
+          "target": "2000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "751c2b8c-2fa3-4055-bcee-cb7477ae84b0",
+          "comment": "Verificar se o site pede o nickname (só acontece a quem ainda não jogou como convidado)",
+          "command": "executeScript",
+          "target": "return !!document.querySelector('.input-xl')",
+          "targets": [],
+          "value": "hasDialog"
+        },
+        {
+          "id": "474a6e14-24ef-4087-8d39-150d756f0554",
+          "comment": "Se o diálogo de registo aparecer",
+          "command": "if",
+          "target": "${hasDialog}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "6217f712-4936-4d68-b9ea-cb2eeadce8a5",
+          "comment": "Escrever o nickname de convidado no diálogo de registo",
+          "command": "executeScript",
+          "target": "var i=document.querySelector('.input-xl'); var s=Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set; s.call(i,'Tester83590'); i.dispatchEvent(new Event('input',{bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "8ae3fe4d-8be2-427a-81ed-2e2bec275fc1",
+          "comment": "Esperar que o site valide o nickname",
+          "command": "pause",
+          "target": "1000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c0d16e05-8ad6-4a08-a5b2-8344b33c9461",
+          "comment": "Clicar em 'Continue' para confirmar o nickname",
+          "command": "click",
+          "target": "css=.p-3 > .btn",
+          "targets": [
+            [
+              "css=.p-3 > .btn",
+              "css:finder"
+            ],
+            [
+              "xpath=//button[@type='submit']",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=//mat-dialog-container[@id='mat-mdc-dialog-serverApp0']/div/div/app-guest-registration-dialog/form/app-dialog-layout/div/footer/button",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//footer/button",
+              "xpath:position"
+            ],
+            [
+              "xpath=//button[contains(.,'Continue')]",
+              "xpath:innerText"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "aba94faa-6993-43c9-9324-3842abb2c76e",
+          "comment": "Fim da condição do diálogo de registo",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d1c44af5-10b5-4830-b423-57236e3a9c83",
+          "comment": "Esperar que o tabuleiro apareça",
+          "command": "waitForElementPresent",
+          "target": "css=table.table-board",
+          "targets": [
+            [
+              "css=.hover",
+              "css:finder"
+            ]
+          ],
+          "value": "10000"
+        },
+        {
+          "id": "bc9acafc-ebae-44a8-b13a-5ce795fb7d47",
+          "comment": "Esperar que o aviso 'It's your turn!' desapareça",
+          "command": "pause",
+          "target": "4000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "43356cb4-010c-48b6-a353-aa6ddb9ae8ad",
+          "comment": "Verificar que há 2 mísseis grandes disponíveis",
+          "command": "assertText",
+          "target": "css=button.weapon-button:not([disabled]):not(.is-selected)",
+          "targets": [],
+          "value": "2"
+        },
+        {
+          "id": "9f48b622-5509-4a29-9424-2eeba1713735",
+          "comment": "Selecionar o míssil grande na barra de armas",
+          "command": "click",
+          "target": "css=button.weapon-button:not([disabled]):not(.is-selected)",
+          "targets": [
+            [
+              "css=button.weapon-button:not([disabled]):not(.is-selected)",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "4b4cd8f8-cc0a-4032-a0a9-bc439ae4096a",
+          "comment": "Disparar o míssil grande sobre a casa central do tabuleiro do adversário",
+          "command": "click",
+          "target": "xpath=(//table[contains(@class,'table-board')])[2]//td[contains(@class,'cell-4-4')]",
+          "targets": [
+            [
+              "xpath=(//table[contains(@class,'table-board')])[2]//td[contains(@class,'cell-4-4')]",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "f34a23a8-b508-451b-be88-3e10168ee4f3",
+          "comment": "Esperar que o disparo seja marcado no tabuleiro",
+          "command": "pause",
+          "target": "2500",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "af8ca563-b460-47bf-8486-ca3504b73038",
+          "comment": "Verificar que a casa de cima da cruz ficou marcada",
+          "command": "assertElementPresent",
+          "target": "xpath=(//table[contains(@class,'table-board')])[2]//td[contains(@class,'cell-3-4')]//*[contains(@class,'hit')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1587df0f-5220-46bf-99d5-cde721daa638",
+          "comment": "Verificar que a casa de baixo da cruz ficou marcada",
+          "command": "assertElementPresent",
+          "target": "xpath=(//table[contains(@class,'table-board')])[2]//td[contains(@class,'cell-5-4')]//*[contains(@class,'hit')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "25ffa014-74f2-4d3f-be94-86dc0b295b1b",
+          "comment": "Verificar que sobra 1 míssil grande",
+          "command": "assertText",
+          "target": "css=button.weapon-button:not([disabled]):not(.is-selected)",
+          "targets": [],
+          "value": "1"
+        },
+        {
+          "id": "83c7da57-9766-4daa-84e1-a0a90c519ea5",
+          "comment": "Pausa final para ver o resultado antes de terminar",
+          "command": "pause",
+          "target": "4000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "2159d1e7-eb81-471d-b37f-bac10fed64e9",
+          "comment": "Fechar a janela do navegador",
+          "command": "close",
+          "target": "",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "c6d5d3bc-c3d9-4027-adc8-56dd5c17c514",
+      "name": "UserStoryTest5",
+      "commands": [
+        {
+          "id": "52b79363-7f2b-41c3-bfb4-9e9d7c2b85e1",
+          "comment": "Abrir a página do jogo Battleship",
+          "command": "open",
+          "target": "/en/battleship",
+          "targets": [
+            [
+              "/en/battleship",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "f36030ec-b8d2-4ed1-b760-1bc1d6603198",
+          "comment": "Definir o tamanho da janela do navegador",
+          "command": "setWindowSize",
+          "target": "1036x697",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1b2567f8-15fb-40eb-8fdd-b1360c62cb2a",
+          "comment": "Clicar em 'Play vs robot' para jogar contra o computador",
+          "command": "click",
+          "target": "css=.w-100:nth-child(2) > .btn .flex-grow-1",
+          "targets": [
+            [
+              "css=.w-100:nth-child(2) > .btn .flex-grow-1",
+              "css:finder"
+            ],
+            [
+              "xpath=//app-juicy-button[2]/button/span[2]/span",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "d3fb78f1-ef6d-443b-83e2-0ac6c2ceba18",
+          "comment": "Esperar pelo diálogo de registo, se for pedido",
+          "command": "pause",
+          "target": "2000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "8c7a8c5c-ce84-4bef-b32c-54d42fbb47ba",
+          "comment": "Verificar se o site pede o nickname (só acontece a quem ainda não jogou como convidado)",
+          "command": "executeScript",
+          "target": "return !!document.querySelector('.input-xl')",
+          "targets": [],
+          "value": "hasDialog"
+        },
+        {
+          "id": "6f4a18bd-473f-44ff-9671-d6b8c2bcbb01",
+          "comment": "Se o diálogo de registo aparecer",
+          "command": "if",
+          "target": "${hasDialog}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "6217f712-4936-4d68-b9ea-cb2eeadce8a5",
+          "comment": "Escrever o nickname de convidado no diálogo de registo",
+          "command": "executeScript",
+          "target": "var i=document.querySelector('.input-xl'); var s=Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set; s.call(i,'Tester83590'); i.dispatchEvent(new Event('input',{bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "9f6504bf-956c-4cb5-9596-47c4769b2578",
+          "comment": "Esperar que o site valide o nickname",
+          "command": "pause",
+          "target": "1000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c0d16e05-8ad6-4a08-a5b2-8344b33c9461",
+          "comment": "Clicar em 'Continue' para confirmar o nickname",
+          "command": "click",
+          "target": "css=.p-3 > .btn",
+          "targets": [
+            [
+              "css=.p-3 > .btn",
+              "css:finder"
+            ],
+            [
+              "xpath=//button[@type='submit']",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=//mat-dialog-container[@id='mat-mdc-dialog-serverApp0']/div/div/app-guest-registration-dialog/form/app-dialog-layout/div/footer/button",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//footer/button",
+              "xpath:position"
+            ],
+            [
+              "xpath=//button[contains(.,'Continue')]",
+              "xpath:innerText"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "08d46f46-d9c8-40c5-ab02-5ebcdbc535a8",
+          "comment": "Fim da condição do diálogo de registo",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d1c44af5-10b5-4830-b423-57236e3a9c83",
+          "comment": "Esperar que o tabuleiro apareça",
+          "command": "waitForElementPresent",
+          "target": "css=table.table-board",
+          "targets": [
+            [
+              "css=.hover",
+              "css:finder"
+            ]
+          ],
+          "value": "10000"
+        },
+        {
+          "id": "965553bc-8f71-44cc-ac5b-1cdc6399c168",
+          "comment": "Esperar que o aviso 'It's your turn!' desapareça",
+          "command": "pause",
+          "target": "4000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "18ca3d2a-28db-4b23-9544-50ebc5e1af07",
+          "comment": "Clicar no botão de desistir",
+          "command": "click",
+          "target": "css=.btn",
+          "targets": [
+            [
+              "css=.btn",
+              "css:finder"
+            ],
+            [
+              "xpath=//span/button",
+              "xpath:position"
+            ],
+            [
+              "xpath=//button[contains(.,'Resign')]",
+              "xpath:innerText"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "e0d3a770-b4cd-4981-afe8-20eb5e7bc5aa",
+          "comment": "Esperar que o diálogo de confirmação abra",
+          "command": "pause",
+          "target": "2000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "cff8aab0-faab-45a0-8635-a256eb0ef309",
+          "comment": "Verificar que é pedida confirmação ('Are you sure')",
+          "command": "assertElementPresent",
+          "target": "xpath=//mat-dialog-container[contains(.,'Are you sure')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1b45235e-6ebf-48c2-b5f3-59126423d42c",
+          "comment": "Confirmar a desistência",
+          "command": "click",
+          "target": "css=.btn-danger",
+          "targets": [
+            [
+              "css=.btn-danger",
+              "css:finder"
+            ],
+            [
+              "xpath=(//button[@type='button'])[4]",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=//mat-dialog-container[@id='mat-mdc-dialog-serverApp2']/div/div/app-confirm-leave-dialog/app-dialog-layout/div/footer/button[2]",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//footer/button[2]",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "ffb807a2-596c-4ac7-9ee0-1fcbddeb0661",
+          "comment": "Esperar que a partida feche",
+          "command": "pause",
+          "target": "3000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "41832b8a-4ebf-42f0-8f36-90df19ec7ebe",
+          "comment": "Verificar que a partida terminou (tabuleiros desapareceram)",
+          "command": "assertElementNotPresent",
+          "target": "css=table.table-board",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "93ef4875-edd6-4eef-8b07-519794496542",
+          "comment": "Pausa final para ver o resultado antes de terminar",
+          "command": "pause",
+          "target": "4000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "0cf6b970-5c91-4a99-a3d2-ebc421e732a8",
+          "comment": "Fechar a janela do navegador",
+          "command": "close",
+          "target": "",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "baafab74-64f0-436c-886a-dc7b7e8e97bc",
+      "name": "UserStoryTest6",
+      "commands": [
+        {
+          "id": "52b79363-7f2b-41c3-bfb4-9e9d7c2b85e1",
+          "comment": "Abrir a página do jogo Battleship",
+          "command": "open",
+          "target": "/en/battleship",
+          "targets": [
+            [
+              "/en/battleship",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "f36030ec-b8d2-4ed1-b760-1bc1d6603198",
+          "comment": "Definir o tamanho da janela do navegador",
+          "command": "setWindowSize",
+          "target": "1036x697",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "daa766cb-141b-4341-9b05-8624aa9e4674",
+          "comment": "Clicar em 'Play with a friend' para jogar com um amigo",
+          "command": "click",
+          "target": "css=.w-100:nth-child(1) .flex-grow-1",
+          "targets": [
+            [
+              "css=.w-100:nth-child(1) .flex-grow-1",
+              "css:finder"
+            ],
+            [
+              "xpath=//span[2]/span",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "d407c18d-3b22-41f8-80a6-59f5d66a06da",
+          "comment": "Esperar pelo diálogo de registo, se for pedido",
+          "command": "pause",
+          "target": "2000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "db67e207-1e0d-4bc9-93a6-48f55a73b536",
+          "comment": "Verificar se o site pede o nickname (só acontece a quem ainda não jogou como convidado)",
+          "command": "executeScript",
+          "target": "return !!document.querySelector('.input-xl')",
+          "targets": [],
+          "value": "hasDialog"
+        },
+        {
+          "id": "5bf13b43-2e7f-4631-9445-809ace96749c",
+          "comment": "Se o diálogo de registo aparecer",
+          "command": "if",
+          "target": "${hasDialog}",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "6217f712-4936-4d68-b9ea-cb2eeadce8a5",
+          "comment": "Escrever o nickname de convidado no diálogo de registo",
+          "command": "executeScript",
+          "target": "var i=document.querySelector('.input-xl'); var s=Object.getOwnPropertyDescriptor(HTMLInputElement.prototype,'value').set; s.call(i,'Tester83590'); i.dispatchEvent(new Event('input',{bubbles:true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "7f21b734-d15c-43b0-a77c-11f24134d1db",
+          "comment": "Esperar que o site valide o nickname",
+          "command": "pause",
+          "target": "1000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c0d16e05-8ad6-4a08-a5b2-8344b33c9461",
+          "comment": "Clicar em 'Continue' para confirmar o nickname",
+          "command": "click",
+          "target": "css=.p-3 > .btn",
+          "targets": [
+            [
+              "css=.p-3 > .btn",
+              "css:finder"
+            ],
+            [
+              "xpath=//button[@type='submit']",
+              "xpath:attributes"
+            ],
+            [
+              "xpath=//mat-dialog-container[@id='mat-mdc-dialog-serverApp0']/div/div/app-guest-registration-dialog/form/app-dialog-layout/div/footer/button",
+              "xpath:idRelative"
+            ],
+            [
+              "xpath=//footer/button",
+              "xpath:position"
+            ],
+            [
+              "xpath=//button[contains(.,'Continue')]",
+              "xpath:innerText"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "97c1a6e5-ec6f-4fe0-b60d-53fa466fa759",
+          "comment": "Fim da condição do diálogo de registo",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "b76e3e02-5ceb-4820-8199-e086babcc2ab",
+          "comment": "Esperar pela sala com o link de convite",
+          "command": "pause",
+          "target": "3000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "b47a45b9-c54f-41bb-83ee-d28794302b92",
+          "comment": "Verificar que é apresentado o link de convite",
+          "command": "assertElementPresent",
+          "target": "xpath=//*[contains(normalize-space(.),'papergames.io/en/r/')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1b573705-80ef-4fa4-9954-12973011aebb",
+          "comment": "Verificar que existe o ícone para copiar o link",
+          "command": "assertElementPresent",
+          "target": "css=.fa-copy",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "85e64967-0e48-407e-80b2-d67cf261f51f",
+          "comment": "Clicar no ícone para copiar o link de convite",
+          "command": "click",
+          "target": "css=.fa-copy",
+          "targets": [
+            [
+              "css=.fa-copy",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "bde612e7-86e4-443f-a3bf-90e4aa954a1c",
+          "comment": "Esperar que o link seja copiado",
+          "command": "pause",
+          "target": "1500",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d3e66211-f052-4cc0-8598-d267011d03ce",
+          "comment": "Clicar em 'Leave room' para sair da sala",
+          "command": "click",
+          "target": "css=.btn",
+          "targets": [
+            [
+              "css=.btn",
+              "css:finder"
+            ],
+            [
+              "xpath=//span/button",
+              "xpath:position"
+            ],
+            [
+              "xpath=//button[contains(.,'Leave room')]",
+              "xpath:innerText"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "730d4750-2028-41a6-aabc-cd38b39d9511",
+          "comment": "Esperar pelo regresso à página do jogo",
+          "command": "pause",
+          "target": "2000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "b009e060-9805-427c-b7db-eed0ace04b92",
+          "comment": "Verificar que voltei à página inicial do jogo",
+          "command": "assertElementPresent",
+          "target": "xpath=//app-juicy-button[contains(.,'Play with a friend')]",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d3e35e00-ed47-4a1f-8711-f3b9579a6480",
+          "comment": "Pausa final para ver o resultado antes de terminar",
+          "command": "pause",
+          "target": "4000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "79a19350-1267-43d2-b863-f7ccdba2d0b8",
+          "comment": "Fechar a janela do navegador",
+          "command": "close",
+          "target": "",
+          "targets": [],
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "65467c92-14fe-44be-92c3-9499c14e011b",
+      "name": "Default Suite",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "1b199378-2b4d-4aaf-aa3b-363ec09c40e5",
+        "6a1b4225-50f3-4270-897d-b4c6c224883f",
+        "8fa6c921-72ec-4091-aad9-efa6ceb6f7d7",
+        "ada93b14-ae98-44b1-8971-73c10765c6c7",
+        "c6d5d3bc-c3d9-4027-adc8-56dd5c17c514",
+        "baafab74-64f0-436c-886a-dc7b7e8e97bc"
+      ]
+    }
+  ],
+  "urls": [
+    "https://papergames.io/en/battleship"
+  ],
+  "plugins": []
+}
