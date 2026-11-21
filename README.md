@@ -17,12 +17,16 @@ Backlog (Scrum, user stories numeradas) do jogo de batalha naval online https://
 
 Prioridade (MoSCoW): **M** = Must (essencial), **S** = Should (importante), **C** = Could (desejável).
 
+✅ = user story já testada, com o teste indicado por baixo (ver “Testes de aceitação” no fim). Cada membro marca aqui as suas.
+
 ### Épico A – Entrar e começar a jogar
 
 - **US1 (M).** Como jogador, quero abrir a página do jogo e ver os modos disponíveis, para escolher como quero jogar.
   - Aceitação: aparecem os modos “Play with a friend”, “Play vs robot”, “Create tournament” e “Play online”.
+  - ✅ Testada (83590): `UserStoryTest1`
 - **US2 (M).** Como convidado, quero indicar um nickname, para poder jogar sem criar conta.
   - Aceitação: ao escolher um modo de jogo aparece o diálogo “Who are you?”; ao confirmar o nickname com “Continue” entro na sala de jogo.
+  - ✅ Testada (83590): `UserStoryTest2`
 - **US3 (M).** Como jogador, quero começar uma partida contra o robot, para jogar a qualquer hora.
   - Aceitação: são apresentados o meu tabuleiro (“Your boats”) e o do adversário, e o botão “Abort game”.
 - **US4 (S).** Como jogador, quero ver o ranking diário e o ranking dos últimos 30 dias, para saber quem está a jogar melhor.
@@ -32,6 +36,7 @@ Prioridade (MoSCoW): **M** = Must (essencial), **S** = Should (importante), **C*
 
 - **US5 (M).** Como jogador, quero disparar sobre uma casa do tabuleiro do adversário, para tentar afundar os seus navios.
   - Aceitação: depois do clique, a casa fica marcada.
+  - ✅ Testada (83590): `UserStoryTest3`
 - **US6 (M).** Como jogador, quero ver o meu tabuleiro com a frota colocada aleatoriamente (navios de 5, 4, 3, 3 e 2 casas), para saber onde estão os meus navios.
   - Aceitação: o tabuleiro 10×10 “Your boats” mostra os 5 navios.
 - **US7 (M).** Como jogador, quero que uma casa disparada fique marcada como falha ou acerto, para saber o resultado de cada disparo.
@@ -42,10 +47,12 @@ Prioridade (MoSCoW): **M** = Must (essencial), **S** = Should (importante), **C*
   - Aceitação: é apresentada a mensagem “It's your turn!” e os relógios de cada jogador.
 - **US10 (C).** Como jogador, quero usar o míssil grande (uma cruz de 5 casas, com 2 unidades no início), para atingir várias casas de uma vez.
   - Aceitação: a barra de armas mostra o míssil grande com o número 2; ao selecioná-lo e disparar, ficam marcadas 5 casas e sobra 1 unidade.
+  - ✅ Testada (83590): `UserStoryTest4`
 - **US11 (C).** Como jogador, quero apanhar prendas no tabuleiro ao acertar nelas, para ganhar armas extra. *(descrito na página do jogo)*
   - Aceitação: ao acertar numa prenda, a arma é acrescentada às minhas armas.
 - **US12 (S).** Como jogador, quero desistir de uma partida (“Abort game” no início, “Resign” depois de jogar), para terminar o jogo quando já não quero continuar.
   - Aceitação: o botão pede confirmação (“Are you sure you want to continue?”) e, ao confirmar, a partida termina.
+  - ✅ Testada (83590): `UserStoryTest5`
 - **US13 (S).** Como jogador, quero ver o resultado final da partida, para saber quem ganhou.
   - Aceitação: no fim é apresentado o resultado (por exemplo 0–1) com os botões “Play again!” e “Leave room”.
 - **US14 (C).** Como jogador, quero enviar emojis durante a partida, para comunicar com o adversário.
@@ -55,6 +62,7 @@ Prioridade (MoSCoW): **M** = Must (essencial), **S** = Should (importante), **C*
 
 - **US15 (M).** Como jogador, quero escolher “Play with a friend” e obter um link de convite, para jogar com alguém que conheço.
   - Aceitação: é gerado um link único para a sala.
+  - ✅ Testada (83590): `UserStoryTest6`
 - **US16 (S).** Como jogador, quero partilhar o link de convite, para que o meu amigo entre na partida com um clique e sem conta. *(descrito na página do jogo)*
   - Aceitação: o amigo abre o link e entra na sala sem se registar.
 - **US17 (S).** Como jogador, quero configurar o jogo (tempo por jogada, minutos por jogador, quem joga primeiro, tempo ilimitado), para adaptar as regras à partida.
@@ -122,3 +130,18 @@ Notas para quem escrever os testes:
 - Os navios mudam em cada jogo. Uma casa disparada fica marcada como **falha** (`svg` com a classe `no-hit`) ou como **acerto** (`div` com a classe `hit fire`); o teste deve aceitar ambas.
 - No início da partida aparece um aviso animado “It's your turn!”; o primeiro clique deve ser repetido até a casa ficar marcada.
 - O aviso de cookies (“Do not consent”) pode aparecer à entrada.
+
+## Testes de aceitação (83590 – Valentyna Rusinova)
+
+Projeto do Selenium IDE `TestSuite_83590` (ficheiro `TestSuite_83590.side`) com 6 cenários. Os Page Objects estão em `src/main/java/iscteiul/ista/blackbattleship/us83590` e os testes JUnit em `src/test/java/iscteiul/ista/blackbattleship/us83590`.
+
+| Teste | User story | O que verifica |
+|---|---|---|
+| `UserStoryTest1` | Como jogador, quero abrir a página do jogo e ver os modos disponíveis, para escolher como quero jogar. | Aparecem “Play with a friend”, “Play vs robot”, “Create tournament” e “Play online”. |
+| `UserStoryTest2` | Como convidado, quero indicar um nickname, para poder jogar sem criar conta. | O diálogo “Who are you?” aceita o nickname e, ao confirmar, entra-se na sala de jogo. |
+| `UserStoryTest3` | Como jogador, quero disparar sobre uma casa do tabuleiro do adversário, para tentar afundar os seus navios. | Depois do clique, a casa fica marcada (falha ou acerto). |
+| `UserStoryTest4` | Como jogador, quero usar o míssil grande, para atingir várias casas de uma vez. | O míssil mostra 2 unidades; ao disparar ficam marcadas 5 casas em cruz e sobra 1 unidade. |
+| `UserStoryTest5` | Como jogador, quero desistir de uma partida, para terminar o jogo quando já não quero continuar. | O botão pede confirmação (“Are you sure”) e, ao confirmar, a partida termina. |
+| `UserStoryTest6` | Como jogador, quero escolher “Play with a friend” e obter um link de convite, para jogar com alguém que conheço. | A sala mostra o link de convite e o ícone para o copiar; é possível sair da sala. |
+
+Os cenários foram gravados no Selenium IDE (Firefox) e depois corrigidos e completados com apoio de IA (localizadores, esperas, verificações e código Java). Os testes Java correm em Chrome com Java 23, JUnit 6 e Selenium 4.25.
