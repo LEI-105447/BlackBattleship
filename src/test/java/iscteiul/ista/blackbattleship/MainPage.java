@@ -19,6 +19,15 @@ public class MainPage {
     @FindBy(css = "[data-test='site-header-search-action']")
     public WebElement searchButton;
 
+    @FindBy(css = "[data-test-id='search-input']")
+    public WebElement searchInput;
+
+    @FindBy(css = "button[data-test='full-search-button']")
+    public WebElement fullSearchButton;
+
+    @FindBy(css = "div[data-test='main-submenu']")
+    public WebElement toolsSubmenu;
+
     @FindBy(css = "button[class='ch2-btn ch2-allow-all-btn ch2-btn-primary']")
     public WebElement cookieAllowButton;
 
