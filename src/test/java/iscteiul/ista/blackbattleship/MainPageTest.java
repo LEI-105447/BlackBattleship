@@ -28,13 +28,13 @@ public class MainPageTest {
     public void search() {
         mainPage.searchButton.click();
 
-        WebElement searchField = driver.findElement(By.cssSelector("[data-test='search-input']"));
+        WebElement searchField = driver.findElement(By.cssSelector("[data-test-id='search-input']"));
         searchField.sendKeys("Selenium");
 
         WebElement submitButton = driver.findElement(By.cssSelector("button[data-test='full-search-button']"));
         submitButton.click();
 
-        WebElement searchPageField = driver.findElement(By.cssSelector("input[data-test='search-input']"));
+        WebElement searchPageField = driver.findElement(By.cssSelector("input[data-test-id='search-input']"));
 assertEquals("Selenium", searchPageField.getAttribute("value"));    }
 
     @Test
@@ -50,7 +50,6 @@ assertEquals("Selenium", searchPageField.getAttribute("value"));    }
         mainPage.seeDeveloperToolsButton.click();
         mainPage.findYourToolsButton.click();
 
-        WebElement productsList = driver.findElement(By.id("products-page"));
-        assertTrue(productsList.isDisplayed());
+        assertTrue(driver.getCurrentUrl().contains("/products/"));
 assertEquals("All Developer Tools and Products by JetBrains", driver.getTitle());    }
 }
