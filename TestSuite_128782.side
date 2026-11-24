@@ -1,0 +1,1029 @@
+{
+  "id": "26b6a931-2699-4f07-a858-2c2a4937306c",
+  "version": "2.0",
+  "name": "TestSuite_128782",
+  "url": "https://papergames.io",
+  "tests": [
+    {
+      "id": "d4747f3c-6405-4bb8-8300-e03f135c2e62",
+      "name": "UserStoryTest1",
+      "commands": [
+        {
+          "id": "ada56da6-aff8-45a1-91a8-29cdf076142f",
+          "comment": "Abrir a página do jogo Battleship",
+          "command": "open",
+          "target": "/en/battleship",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "58ae70de-c0f7-4f92-a7dc-f08e21f5d53e",
+          "comment": "Definir o tamanho da janela do navegador",
+          "command": "setWindowSize",
+          "target": "1550x926",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "09304195-15dc-4f7e-864d-52e0944e91fa",
+          "comment": "Esperar que os rankings carreguem",
+          "command": "waitForElementPresent",
+          "target": "css=app-tournament-leaderboard tr.item .player-name",
+          "targets": [
+            [
+              "css=app-tournament-leaderboard tr.item .player-name",
+              "css:finder"
+            ]
+          ],
+          "value": "10000"
+        },
+        {
+          "id": "037d4a40-0c73-479b-92e8-1bae6e82817c",
+          "comment": "Verificar que o ranking diário é apresentado",
+          "command": "assertText",
+          "target": "xpath=//span[contains(.,'Daily leaderboard')]",
+          "targets": [
+            [
+              "css=.d-flex > .c-gray-600",
+              "css:finder"
+            ],
+            [
+              "xpath=//div[2]/span",
+              "xpath:position"
+            ],
+            [
+              "xpath=//span[contains(.,'Daily leaderboard, ends in')]",
+              "xpath:innerText"
+            ]
+          ],
+          "value": "Daily leaderboard, ends in"
+        },
+        {
+          "id": "4eff229e-64dd-4648-b3f4-3c103cdb43f4",
+          "comment": "Verificar que o ranking diário lista jogadores",
+          "command": "assertElementPresent",
+          "target": "css=app-tournament-leaderboard tr.item .player-name",
+          "targets": [
+            [
+              "css=.item:nth-child(1) .d-flex",
+              "css:finder"
+            ],
+            [
+              "xpath=//td[3]/div",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "6ab2e03d-88d3-4908-8e7a-f1c16474073d",
+          "comment": "Verificar que o ranking dos últimos 30 dias é apresentado",
+          "command": "assertText",
+          "target": "xpath=//label[contains(.,'RANKA')]",
+          "targets": [
+            [
+              "css=label",
+              "css:finder"
+            ],
+            [
+              "xpath=//label",
+              "xpath:position"
+            ],
+            [
+              "xpath=//label[contains(.,'RANKA')]",
+              "xpath:innerText"
+            ]
+          ],
+          "value": "RANKA"
+        },
+        {
+          "id": "98a364d3-e091-4df9-ba02-e95eb599051c",
+          "comment": "Verificar que o ranking dos últimos 30 dias lista jogadores",
+          "command": "assertElementPresent",
+          "target": "css=app-ranka-leaderboard tr.item .player-name",
+          "targets": [
+            [
+              "css=.text-end:nth-child(2) .d-flex",
+              "css:finder"
+            ],
+            [
+              "xpath=//app-ranka-leaderboard/div/table/tr[2]/td[3]/div",
+              "xpath:position"
+            ]
+          ],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "b3645732-e560-4031-8b11-476cf78e6681",
+      "name": "UserStoryTest2",
+      "commands": [
+        {
+          "id": "31f112ec-9aec-40b4-aa0d-0db73904d289",
+          "comment": "Abrir a página do jogo Battleship",
+          "command": "open",
+          "target": "/en/battleship",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a05766fe-cab8-4ca3-a961-34a2286c093b",
+          "comment": "Definir o tamanho da janela do navegador",
+          "command": "setWindowSize",
+          "target": "1550x926",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "34d8b958-fed6-462b-acdd-a73bd7e4264a",
+          "comment": "Esperar que a página e o aviso de cookies carreguem",
+          "command": "pause",
+          "target": "2000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "7953e9d1-0c8e-4a29-b6d2-f56d46734053",
+          "comment": "Se o aviso de cookies aparecer...",
+          "command": "if",
+          "target": "document.querySelector('.fc-cta-do-not-consent') !== null",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "6081d736-6e6c-4491-ace6-414857e13c95",
+          "comment": "...recusar os cookies",
+          "command": "click",
+          "target": "css=.fc-cta-do-not-consent",
+          "targets": [
+            [
+              "css=.fc-cta-do-not-consent",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "1c36c824-e43e-4c11-8fbf-8352518ef979",
+          "comment": "Fim da condição dos cookies",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1d943b4a-0ac2-4ff2-abb9-344604528fbf",
+          "comment": "Escolher o modo 'Play vs robot'",
+          "command": "click",
+          "target": "xpath=//app-juicy-button[contains(.,'Play vs robot')]/button",
+          "targets": [
+            [
+              "xpath=//app-juicy-button[contains(.,'Play vs robot')]/button",
+              "xpath:attributes"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "cd8ac9b0-2f16-45bd-9f44-93c8e392dec2",
+          "comment": "Esperar pelo diálogo 'Who are you?' (só aparece a convidados novos)",
+          "command": "pause",
+          "target": "2000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "387e5311-7d3b-46a8-ad4f-83898692af2a",
+          "comment": "Se o site pedir o nickname...",
+          "command": "if",
+          "target": "document.querySelector('mat-dialog-container input.input-xl') !== null",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1735cde5-14e2-412a-80a9-d75cc096d6c0",
+          "comment": "...indicar o nickname de convidado",
+          "command": "executeScript",
+          "target": "var i = document.querySelector(\"mat-dialog-container input.input-xl\"); var s = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set; s.call(i, 'Tester128782'); i.dispatchEvent(new Event('input', {bubbles: true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "288b52aa-70f9-4c59-867f-f9af232eacea",
+          "comment": "Esperar que o site valide o nickname",
+          "command": "pause",
+          "target": "1000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "03eda727-90a7-471b-96b4-0e27969eefda",
+          "comment": "Confirmar o nickname com 'Continue'",
+          "command": "click",
+          "target": "css=mat-dialog-container button[type='submit']",
+          "targets": [
+            [
+              "css=mat-dialog-container button[type='submit']",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "429548dd-3332-4b75-96e4-cde94176ad33",
+          "comment": "Fim da condição do nickname",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e7bf0de5-c12c-4212-9c6f-b42e3e2d11e9",
+          "comment": "Esperar que a sala de jogo carregue",
+          "command": "waitForElementPresent",
+          "target": "css=.current-player .header",
+          "targets": [
+            [
+              "css=.current-player .header",
+              "css:finder"
+            ]
+          ],
+          "value": "10000"
+        },
+        {
+          "id": "18b446bf-8721-4703-8a07-90e71c7a6534",
+          "comment": "Verificar que o meu tabuleiro é apresentado",
+          "command": "assertText",
+          "target": "css=.current-player .header",
+          "targets": [
+            [
+              "css=.current-player .header",
+              "css:finder"
+            ]
+          ],
+          "value": "Your boats"
+        },
+        {
+          "id": "fe6212d4-433d-4d2f-ad35-e48bd04d4d5a",
+          "comment": "Verificar que o tabuleiro do adversário é apresentado",
+          "command": "assertElementPresent",
+          "target": "css=.opponent table.table-board",
+          "targets": [
+            [
+              "css=.opponent table.table-board",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "85555f74-9f0f-44b5-ab6a-dd0df2df416f",
+          "comment": "Verificar que o botão 'Abort game' está disponível",
+          "command": "assertText",
+          "target": "xpath=//button[contains(.,'Abort game')]",
+          "targets": [
+            [
+              "xpath=//button[contains(.,'Abort game')]",
+              "xpath:attributes"
+            ]
+          ],
+          "value": "Abort game"
+        },
+        {
+          "id": "31ad3679-1a88-4226-bb24-8e97fdcee8df",
+          "comment": "Terminar a partida com 'Abort game' (limpeza)",
+          "command": "click",
+          "target": "xpath=//button[contains(.,'Abort game')]",
+          "targets": [
+            [
+              "xpath=//button[contains(.,'Abort game')]",
+              "xpath:attributes"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "0c92ba93-5bea-4c40-879f-702d366a896c",
+          "comment": "Esperar pelo pedido de confirmação",
+          "command": "waitForElementVisible",
+          "target": "xpath=//mat-dialog-container//button[contains(.,'Abort game')]",
+          "targets": [
+            [
+              "xpath=//mat-dialog-container//button[contains(.,'Abort game')]",
+              "xpath:attributes"
+            ]
+          ],
+          "value": "5000"
+        },
+        {
+          "id": "a3258449-c509-405a-845a-e72fa1fea339",
+          "comment": "Confirmar o fim da partida",
+          "command": "click",
+          "target": "xpath=//mat-dialog-container//button[contains(.,'Abort game')]",
+          "targets": [
+            [
+              "xpath=//mat-dialog-container//button[contains(.,'Abort game')]",
+              "xpath:attributes"
+            ]
+          ],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "775e9307-eb93-49e3-9f6d-1c12d44838f5",
+      "name": "UserStoryTest3",
+      "commands": [
+        {
+          "id": "9a3edbef-7fc0-4b21-811f-25820ae9ebf9",
+          "comment": "Abrir a página do jogo Battleship",
+          "command": "open",
+          "target": "/en/battleship",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "4195277c-b61b-4a82-9131-17b6632d7778",
+          "comment": "Definir o tamanho da janela do navegador",
+          "command": "setWindowSize",
+          "target": "1550x926",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "269161ac-1664-4bf4-add5-75b240ff587c",
+          "comment": "Esperar que a página e o aviso de cookies carreguem",
+          "command": "pause",
+          "target": "2000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "dcfe1ba7-b5fe-46ea-b5e1-0787b9edc28f",
+          "comment": "Se o aviso de cookies aparecer...",
+          "command": "if",
+          "target": "document.querySelector('.fc-cta-do-not-consent') !== null",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "22fb0204-d4c4-40ba-a868-6b20acf4bd6c",
+          "comment": "...recusar os cookies",
+          "command": "click",
+          "target": "css=.fc-cta-do-not-consent",
+          "targets": [
+            [
+              "css=.fc-cta-do-not-consent",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "c1b9c0cf-c555-497e-ad6c-6d6d76a93992",
+          "comment": "Fim da condição dos cookies",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "2d78e0a2-158f-4511-8d28-1dd9eea8ebbe",
+          "comment": "Escolher o modo 'Play vs robot'",
+          "command": "click",
+          "target": "xpath=//app-juicy-button[contains(.,'Play vs robot')]/button",
+          "targets": [
+            [
+              "xpath=//app-juicy-button[contains(.,'Play vs robot')]/button",
+              "xpath:attributes"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "36f5dc78-3319-4824-9870-140580b6b298",
+          "comment": "Esperar pelo diálogo 'Who are you?' (só aparece a convidados novos)",
+          "command": "pause",
+          "target": "2000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "1269f362-8852-4057-b838-1a77db74256d",
+          "comment": "Se o site pedir o nickname...",
+          "command": "if",
+          "target": "document.querySelector('mat-dialog-container input.input-xl') !== null",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "8650d91e-b080-4bae-a25f-9fcfc6a63a7f",
+          "comment": "...indicar o nickname de convidado",
+          "command": "executeScript",
+          "target": "var i = document.querySelector(\"mat-dialog-container input.input-xl\"); var s = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set; s.call(i, 'Tester128782'); i.dispatchEvent(new Event('input', {bubbles: true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "a0d52a3e-a0dd-4411-ba18-80a7a39e4fbd",
+          "comment": "Esperar que o site valide o nickname",
+          "command": "pause",
+          "target": "1000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "16fb7773-444f-450d-ba72-cc5c42285d1a",
+          "comment": "Confirmar o nickname com 'Continue'",
+          "command": "click",
+          "target": "css=mat-dialog-container button[type='submit']",
+          "targets": [
+            [
+              "css=mat-dialog-container button[type='submit']",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "c123ee13-8461-4107-8c14-f0ea6519c6c8",
+          "comment": "Fim da condição do nickname",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "76320907-2051-495b-ad67-d18fb0dc5c34",
+          "comment": "Esperar que a sala de jogo carregue",
+          "command": "waitForElementPresent",
+          "target": "css=.current-player .header",
+          "targets": [
+            [
+              "css=.current-player .header",
+              "css:finder"
+            ]
+          ],
+          "value": "10000"
+        },
+        {
+          "id": "683fd880-03a5-47c5-9295-74aafd49e078",
+          "comment": "Esperar pela barra de armas",
+          "command": "waitForElementVisible",
+          "target": "css=#player_weapons",
+          "targets": [
+            [
+              "css=#player_weapons",
+              "css:finder"
+            ]
+          ],
+          "value": "10000"
+        },
+        {
+          "id": "030d0aff-2131-4330-a004-a644a418f5b4",
+          "comment": "Verificar que o míssil simples está na barra de armas",
+          "command": "assertElementPresent",
+          "target": "xpath=//div[@id='player_weapons']/button[img[@alt='default']]",
+          "targets": [
+            [
+              "xpath=//div[@id='player_weapons']/button[img[@alt='default']]",
+              "xpath:attributes"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "9fc41c1c-781d-4ba9-a931-4b577d9b5861",
+          "comment": "Verificar que o míssil simples vem selecionado",
+          "command": "assertElementPresent",
+          "target": "xpath=//div[@id='player_weapons']/button[img[@alt='default'] and contains(@class,'is-selected')]",
+          "targets": [
+            [
+              "xpath=//div[@id='player_weapons']/button[img[@alt='default'] and contains(@class,'is-selected')]",
+              "xpath:attributes"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "cf5cf1e9-064e-4829-b0df-fd43e22ae9cd",
+          "comment": "Verificar que o míssil simples não tem contador (uso ilimitado)",
+          "command": "assertElementNotPresent",
+          "target": "xpath=//div[@id='player_weapons']/button[img[@alt='default']]/span[contains(@class,'badge')][normalize-space(.)!='']",
+          "targets": [
+            [
+              "xpath=//div[@id='player_weapons']/button[img[@alt='default']]/span[contains(@class,'badge')][normalize-space(.)!='']",
+              "xpath:attributes"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "eb283ab5-74fa-4c6c-94b1-51a19cd8d7a3",
+          "comment": "Terminar a partida com 'Abort game' (limpeza)",
+          "command": "click",
+          "target": "xpath=//button[contains(.,'Abort game')]",
+          "targets": [
+            [
+              "xpath=//button[contains(.,'Abort game')]",
+              "xpath:attributes"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "18242dfa-eade-42f6-98fd-41b6c8d29506",
+          "comment": "Esperar pelo pedido de confirmação",
+          "command": "waitForElementVisible",
+          "target": "xpath=//mat-dialog-container//button[contains(.,'Abort game')]",
+          "targets": [
+            [
+              "xpath=//mat-dialog-container//button[contains(.,'Abort game')]",
+              "xpath:attributes"
+            ]
+          ],
+          "value": "5000"
+        },
+        {
+          "id": "9dd92618-fe08-4825-b63c-90cd63dfb8a7",
+          "comment": "Confirmar o fim da partida",
+          "command": "click",
+          "target": "xpath=//mat-dialog-container//button[contains(.,'Abort game')]",
+          "targets": [
+            [
+              "xpath=//mat-dialog-container//button[contains(.,'Abort game')]",
+              "xpath:attributes"
+            ]
+          ],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "ff614928-6a92-4a3a-a920-88799247db2d",
+      "name": "UserStoryTest4",
+      "commands": [
+        {
+          "id": "3a452fdd-4fe7-4acc-9c65-a3b88584007e",
+          "comment": "Abrir a página do jogo Battleship",
+          "command": "open",
+          "target": "/en/battleship",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "c6db1e98-edae-427b-a18c-300568de6e82",
+          "comment": "Definir o tamanho da janela do navegador",
+          "command": "setWindowSize",
+          "target": "1550x926",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "218e8402-fbfe-470f-84e0-775e454ce39b",
+          "comment": "Esperar que a página e o aviso de cookies carreguem",
+          "command": "pause",
+          "target": "2000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e6b482eb-205b-4635-a56d-2c0e644b7d2b",
+          "comment": "Se o aviso de cookies aparecer...",
+          "command": "if",
+          "target": "document.querySelector('.fc-cta-do-not-consent') !== null",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d34e7a33-62c3-44ad-83e1-c896c8eacfcc",
+          "comment": "...recusar os cookies",
+          "command": "click",
+          "target": "css=.fc-cta-do-not-consent",
+          "targets": [
+            [
+              "css=.fc-cta-do-not-consent",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "11b36e67-f99a-47c8-a7c9-a45bd10c82eb",
+          "comment": "Fim da condição dos cookies",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "d793f88e-e50d-481a-83d4-3f50ba6d5f0b",
+          "comment": "Abrir as definições de jogo (roda dentada de 'Play with a friend')",
+          "command": "click",
+          "target": "xpath=//app-juicy-button[contains(.,'Play with a friend')]//button[@mat-icon-button]",
+          "targets": [
+            [
+              "xpath=//app-juicy-button[contains(.,'Play with a friend')]//button[@mat-icon-button]",
+              "xpath:attributes"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "b6fa3a43-0a2f-4362-82fd-f5f1ee13cd8e",
+          "comment": "Esperar pelo diálogo 'Game settings'",
+          "command": "waitForElementVisible",
+          "target": "css=app-game-settings-dialog",
+          "targets": [
+            [
+              "css=app-game-settings-dialog",
+              "css:finder"
+            ]
+          ],
+          "value": "5000"
+        },
+        {
+          "id": "74e641e0-1b6d-4730-8953-529b73adf4b7",
+          "comment": "Verificar que o diálogo 'Game settings' é apresentado",
+          "command": "assertText",
+          "target": "xpath=//app-game-settings-dialog//h2",
+          "targets": [
+            [
+              "xpath=//app-game-settings-dialog//h2",
+              "xpath:attributes"
+            ]
+          ],
+          "value": "Game settings"
+        },
+        {
+          "id": "6bf425a4-396e-4755-ae96-09900fdb2234",
+          "comment": "Verificar o tempo por jogada por omissão (40 segundos)",
+          "command": "assertText",
+          "target": "xpath=//app-game-settings-dialog//div[contains(.,'Time per turn')]/strong",
+          "targets": [
+            [
+              "xpath=//app-game-settings-dialog//div[contains(.,'Time per turn')]/strong",
+              "xpath:attributes"
+            ]
+          ],
+          "value": "40 seconds"
+        },
+        {
+          "id": "2b7a2fb3-8607-488d-9191-c7e2a5b23ac8",
+          "comment": "Verificar os minutos por jogador por omissão (3 minutos)",
+          "command": "assertText",
+          "target": "xpath=//app-game-settings-dialog//div[contains(.,'Minutes per player')]/strong",
+          "targets": [
+            [
+              "xpath=//app-game-settings-dialog//div[contains(.,'Minutes per player')]/strong",
+              "xpath:attributes"
+            ]
+          ],
+          "value": "3 minutes"
+        },
+        {
+          "id": "c5c5d68d-8874-4299-a43f-26a016605fe2",
+          "comment": "Verificar que o primeiro jogador é aleatório por omissão",
+          "command": "assertText",
+          "target": "xpath=//app-game-settings-dialog//div[contains(.,'Who plays first')]/strong",
+          "targets": [
+            [
+              "xpath=//app-game-settings-dialog//div[contains(.,'Who plays first')]/strong",
+              "xpath:attributes"
+            ]
+          ],
+          "value": "Random"
+        },
+        {
+          "id": "9fdbb27f-9410-4c9a-b89d-44d9e2c5b64b",
+          "comment": "Guardar as definições com 'Save settings'",
+          "command": "click",
+          "target": "xpath=//app-game-settings-dialog//button[contains(.,'Save settings')]",
+          "targets": [
+            [
+              "xpath=//app-game-settings-dialog//button[contains(.,'Save settings')]",
+              "xpath:attributes"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "f937ad33-1d11-40fa-8592-df79b05ee55a",
+          "comment": "Verificar que as definições foram guardadas e o diálogo fechou",
+          "command": "waitForElementNotPresent",
+          "target": "css=app-game-settings-dialog",
+          "targets": [
+            [
+              "css=app-game-settings-dialog",
+              "css:finder"
+            ]
+          ],
+          "value": "5000"
+        }
+      ]
+    },
+    {
+      "id": "d198e1a0-2244-4de8-8372-5d06ea639b9e",
+      "name": "UserStoryTest5",
+      "commands": [
+        {
+          "id": "1350b6d5-3319-424e-8ccf-cb1c1740c35f",
+          "comment": "Abrir a página do jogo Battleship",
+          "command": "open",
+          "target": "/en/battleship",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "eb70b00a-55fe-4719-bc0e-d94f9705bfe2",
+          "comment": "Definir o tamanho da janela do navegador",
+          "command": "setWindowSize",
+          "target": "1550x926",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "99fc3a80-2edb-4f6f-a116-f37608fa9a42",
+          "comment": "Esperar que a página e o aviso de cookies carreguem",
+          "command": "pause",
+          "target": "2000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "18f3791e-23c3-4bcd-94bd-ea8f3207543b",
+          "comment": "Se o aviso de cookies aparecer...",
+          "command": "if",
+          "target": "document.querySelector('.fc-cta-do-not-consent') !== null",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "83ae7ae3-89d5-490f-af62-bb811c66f801",
+          "comment": "...recusar os cookies",
+          "command": "click",
+          "target": "css=.fc-cta-do-not-consent",
+          "targets": [
+            [
+              "css=.fc-cta-do-not-consent",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "9d2e1919-05d3-4d21-ad54-a2635e9011cb",
+          "comment": "Fim da condição dos cookies",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "bed7b948-3c30-4895-a841-3533fb5ddc2c",
+          "comment": "Escolher 'Create tournament'",
+          "command": "click",
+          "target": "xpath=//app-juicy-button[contains(.,'Create tournament')]//a",
+          "targets": [
+            [
+              "xpath=//app-juicy-button[contains(.,'Create tournament')]//a",
+              "xpath:attributes"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "289a5f53-9ba8-45ce-a185-7b5337350236",
+          "comment": "Esperar pela página de criação de torneios",
+          "command": "waitForElementVisible",
+          "target": "css=#tf-name",
+          "targets": [
+            [
+              "css=#tf-name",
+              "css:finder"
+            ]
+          ],
+          "value": "10000"
+        },
+        {
+          "id": "8ea1f22c-742c-4696-ad26-f7792284f54f",
+          "comment": "Verificar que a página 'Tournament creation' é apresentada",
+          "command": "assertText",
+          "target": "xpath=//h1[contains(.,'Tournament creation')]",
+          "targets": [
+            [
+              "xpath=//h1[contains(.,'Tournament creation')]",
+              "xpath:attributes"
+            ]
+          ],
+          "value": "Tournament creation"
+        },
+        {
+          "id": "56524b26-9c4b-44cc-8614-b82da602fd55",
+          "comment": "Verificar que 'Create and share' está desativado enquanto não há nome",
+          "command": "assertElementPresent",
+          "target": "css=button.tf__cta-btn[disabled]",
+          "targets": [
+            [
+              "css=button.tf__cta-btn[disabled]",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "5cf80f31-1766-48e1-afdc-2c8b466b203b",
+          "comment": "Escrever o nome do torneio no campo 'Tournament name'",
+          "command": "executeScript",
+          "target": "var i = document.querySelector(\"#tf-name\"); var s = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set; s.call(i, 'Torneio 128782'); i.dispatchEvent(new Event('input', {bubbles: true}));",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "84ed9c9b-aefd-498b-b17e-8435f106f8f8",
+          "comment": "Esperar que o site valide o nome",
+          "command": "pause",
+          "target": "1000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "8e214934-b14b-4187-a8ef-088d1261d2d8",
+          "comment": "Verificar que o campo aceitou o nome do torneio",
+          "command": "assertValue",
+          "target": "css=#tf-name",
+          "targets": [
+            [
+              "css=#tf-name",
+              "css:finder"
+            ]
+          ],
+          "value": "Torneio 128782"
+        },
+        {
+          "id": "944c628a-1b27-4ecb-9e0d-5d92b94f84f5",
+          "comment": "Verificar que o nome é considerado válido",
+          "command": "assertElementPresent",
+          "target": "css=#tf-name.ng-valid",
+          "targets": [
+            [
+              "css=#tf-name.ng-valid",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "ec0e499a-b859-4fa3-92b7-c8e8572c1cf8",
+          "comment": "Verificar que 'Create and share' fica ativo (sem o premir)",
+          "command": "assertElementNotPresent",
+          "target": "css=button.tf__cta-btn[disabled]",
+          "targets": [
+            [
+              "css=button.tf__cta-btn[disabled]",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "750432cc-a371-42ca-b7b4-ccf07f7de956",
+      "name": "UserStoryTest6",
+      "commands": [
+        {
+          "id": "99e570d3-d379-415d-ae1f-f6c7a82000d6",
+          "comment": "Abrir a página do jogo Battleship",
+          "command": "open",
+          "target": "/en/battleship",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "4c85de69-63d3-4be3-b0bd-002bbe7e9bbb",
+          "comment": "Definir o tamanho da janela do navegador",
+          "command": "setWindowSize",
+          "target": "1550x926",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "e0aba743-f9d3-4b28-a943-eba9ebd7cfd6",
+          "comment": "Esperar que a página e o aviso de cookies carreguem",
+          "command": "pause",
+          "target": "2000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "db313f6d-26a2-4f3e-848d-97f1d190ca18",
+          "comment": "Se o aviso de cookies aparecer...",
+          "command": "if",
+          "target": "document.querySelector('.fc-cta-do-not-consent') !== null",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "ada037d9-3d9c-451a-baa0-d3b28c1e51d4",
+          "comment": "...recusar os cookies",
+          "command": "click",
+          "target": "css=.fc-cta-do-not-consent",
+          "targets": [
+            [
+              "css=.fc-cta-do-not-consent",
+              "css:finder"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "78ea4628-3e65-4a30-8a19-8dc53e3f04e1",
+          "comment": "Fim da condição dos cookies",
+          "command": "end",
+          "target": "",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "66bd3d16-3518-4db8-809d-533450e33568",
+          "comment": "Deslocar a página até à secção das regras",
+          "command": "executeScript",
+          "target": "document.evaluate(\"//h2[contains(.,'Rules of Battleship')]\", document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.scrollIntoView({block: \"center\"});",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "9b58998d-e4cf-4818-9135-64e4e4b21369",
+          "comment": "Esperar pelo fim do deslocamento",
+          "command": "pause",
+          "target": "1000",
+          "targets": [],
+          "value": ""
+        },
+        {
+          "id": "27e2f8d2-e8bf-4c28-8d66-091fd53f5ace",
+          "comment": "Verificar que a secção 'Rules of Battleship game online' é apresentada",
+          "command": "assertText",
+          "target": "xpath=//h2[contains(.,'Rules of Battleship')]",
+          "targets": [
+            [
+              "xpath=//h2[contains(.,'Rules of Battleship')]",
+              "xpath:attributes"
+            ]
+          ],
+          "value": "Rules of Battleship game online"
+        },
+        {
+          "id": "0b607de8-7ad3-4063-a08a-18b03d569f05",
+          "comment": "Verificar que as regras indicam a grelha de 10×10",
+          "command": "assertElementPresent",
+          "target": "xpath=//h2[contains(.,'Rules of Battleship')]/following-sibling::p[1][contains(.,'10x10')]",
+          "targets": [
+            [
+              "xpath=//h2[contains(.,'Rules of Battleship')]/following-sibling::p[1][contains(.,'10x10')]",
+              "xpath:attributes"
+            ]
+          ],
+          "value": ""
+        },
+        {
+          "id": "64674d14-3bbc-413c-b29d-263e4ba7954b",
+          "comment": "Verificar que as regras indicam a frota de cinco navios (5, 4, 3, 3 e 2 casas)",
+          "command": "assertElementPresent",
+          "target": "xpath=//h2[contains(.,'Rules of Battleship')]/following-sibling::p[1][contains(.,'5, 4, 3, 3 and 2')]",
+          "targets": [
+            [
+              "xpath=//h2[contains(.,'Rules of Battleship')]/following-sibling::p[1][contains(.,'5, 4, 3, 3 and 2')]",
+              "xpath:attributes"
+            ]
+          ],
+          "value": ""
+        }
+      ]
+    }
+  ],
+  "suites": [
+    {
+      "id": "b2ff772d-2578-4bbb-b798-dc4e21762c17",
+      "name": "Default Suite",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": [
+        "d4747f3c-6405-4bb8-8300-e03f135c2e62",
+        "b3645732-e560-4031-8b11-476cf78e6681",
+        "775e9307-eb93-49e3-9f6d-1c12d44838f5",
+        "ff614928-6a92-4a3a-a920-88799247db2d",
+        "d198e1a0-2244-4de8-8372-5d06ea639b9e",
+        "750432cc-a371-42ca-b7b4-ccf07f7de956"
+      ]
+    }
+  ],
+  "urls": [
+    "https://papergames.io/",
+    "https://papergames.io/en/battleship"
+  ],
+  "plugins": []
+}

@@ -29,8 +29,10 @@ Prioridade (MoSCoW): **M** = Must (essencial), **S** = Should (importante), **C*
   - ✅ Testada (83590): `UserStoryTest2`
 - **US3 (M).** Como jogador, quero começar uma partida contra o robot, para jogar a qualquer hora.
   - Aceitação: são apresentados o meu tabuleiro (“Your boats”) e o do adversário, e o botão “Abort game”.
+  - ✅ Testada (128782): `UserStoryTest2`
 - **US4 (S).** Como jogador, quero ver o ranking diário e o ranking dos últimos 30 dias, para saber quem está a jogar melhor.
   - Aceitação: a página do jogo lista jogadores com pontuação nos dois rankings.
+  - ✅ Testada (128782): `UserStoryTest1`
 
 ### Épico B – Jogar a partida
 
@@ -67,6 +69,7 @@ Prioridade (MoSCoW): **M** = Must (essencial), **S** = Should (importante), **C*
   - Aceitação: o amigo abre o link e entra na sala sem se registar.
 - **US17 (S).** Como jogador, quero configurar o jogo (tempo por jogada, minutos por jogador, quem joga primeiro, tempo ilimitado), para adaptar as regras à partida.
   - Aceitação: as “Game settings” mostram estas opções (por omissão: 40 segundos por jogada, 3 minutos por jogador, primeiro jogador aleatório) e permitem guardá-las.
+  - ✅ Testada (128782): `UserStoryTest4`
 - **US18 (S).** Como jogador, quero escolher “Play online” para ser emparelhado com um jogador aleatório, para jogar contra pessoas de todo o mundo. *(fluxo não percorrido, para não entrar em fila com outros jogadores)*
   - Aceitação: é-me atribuído um adversário e a partida começa.
 - **US19 (C).** Como jogador, quero ver a minha lista de amigos e os convites pendentes, para jogar com eles mais facilmente.
@@ -78,6 +81,7 @@ Prioridade (MoSCoW): **M** = Must (essencial), **S** = Should (importante), **C*
   - Aceitação: abre a página “Tournament creation”.
 - **US21 (S).** Como organizador, quero dar um nome ao torneio, para os amigos o reconhecerem.
   - Aceitação: o campo “Tournament name” aceita o nome e o torneio apresenta-o.
+  - ✅ Testada (128782): `UserStoryTest5`
 - **US22 (S).** Como organizador, quero escolher o jogo e o modo do torneio (“Leaderboard” ou “Bracket”), para definir o formato.
   - Aceitação: o jogo por omissão é Battleship e os dois modos podem ser escolhidos.
 - **US23 (C).** Como organizador, quero personalizar as regras dos jogos (melhor de 3, minutos por jogador, penalização), para ajustar a competição.
@@ -104,12 +108,14 @@ Prioridade (MoSCoW): **M** = Must (essencial), **S** = Should (importante), **C*
   - Aceitação: a página de criação mostra as sugestões de nome e a opção de descrição.
 - **US31 (S).** Como jogador, quero ler as regras do jogo na própria página, para saber como se joga antes de começar.
   - Aceitação: a página do jogo mostra a secção "Rules of Battleship game online", com a grelha 10×10 e a frota de cinco navios (5, 4, 3, 3 e 2 casas).
+  - ✅ Testada (128782): `UserStoryTest6`
 - **US32 (M).** Como jogador, quero ver dois tabuleiros de 10×10 casas durante a partida, para acompanhar a minha frota e os meus disparos.
   - Aceitação: a partida mostra dois tabuleiros, cada um com 100 casas.
 - **US33 (M).** Como jogador, quero ver os disparos do adversário marcados no meu tabuleiro, para saber onde me atingiu.
   - Aceitação: depois de eu falhar um disparo, o robot dispara e aparecem marcas novas no tabuleiro “Your boats”.
 - **US34 (S).** Como jogador, quero usar o míssil simples tantas vezes quantas quiser, para poder disparar sempre, mesmo sem armas especiais.
   - Aceitação: na barra de armas o míssil simples vem selecionado e não tem contador.
+  - ✅ Testada (128782): `UserStoryTest3`
 - **US35 (S).** Como jogador, quero afundar um navio quando todas as suas casas são atingidas, para me aproximar da vitória. *(regra descrita na página do jogo)*
   - Aceitação: ao atingir todas as casas de um navio (5, 4, 3, 3 ou 2 casas), o navio fica afundado.
 - **US36 (C).** Como jogador, quero usar a chuva de mísseis, para atingir até 7 casas aleatórias de uma vez. *(arma obtida em prendas; descrita na página do jogo)*
@@ -145,3 +151,18 @@ Projeto do Selenium IDE `TestSuite_83590` (ficheiro `TestSuite_83590.side`) com 
 | `UserStoryTest6` | Como jogador, quero escolher “Play with a friend” e obter um link de convite, para jogar com alguém que conheço. | A sala mostra o link de convite e o ícone para o copiar; é possível sair da sala. |
 
 Os cenários foram gravados no Selenium IDE (Firefox) e depois corrigidos e completados com apoio de IA (localizadores, esperas, verificações e código Java). Os testes Java correm em Chrome com Java 23, JUnit 6 e Selenium 4.25.
+
+## Testes de aceitação (128782 – João Mota)
+
+Projeto do Selenium IDE `TestSuite_128782` (ficheiro `TestSuite_128782.side`) com 6 cenários. Os Page Objects estão em `src/main/java/iscteiul/ista/blackbattleship/us128782` e os testes JUnit em `src/test/java/iscteiul/ista/blackbattleship/us128782`.
+
+| Teste | User story | O que verifica |
+|---|---|---|
+| `UserStoryTest1` | US4 – Como jogador, quero ver o ranking diário e o ranking dos últimos 30 dias, para saber quem está a jogar melhor. | O ranking diário (“Daily leaderboard”) e o ranking dos últimos 30 dias (“RANKA”) são apresentados e listam jogadores. |
+| `UserStoryTest2` | US3 – Como jogador, quero começar uma partida contra o robot, para jogar a qualquer hora. | Depois de “Play vs robot” (e do nickname, se pedido) aparecem “Your boats”, o tabuleiro do adversário e o botão “Abort game”. |
+| `UserStoryTest3` | US34 – Como jogador, quero usar o míssil simples tantas vezes quantas quiser, para poder disparar sempre. | Na barra de armas, o míssil simples está presente, vem selecionado e não tem contador. |
+| `UserStoryTest4` | US17 – Como jogador, quero configurar o jogo, para adaptar as regras à partida. | As “Game settings” mostram 40 segundos por jogada, 3 minutos por jogador e primeiro jogador aleatório, e fecham ao guardar. |
+| `UserStoryTest5` | US21 – Como organizador, quero dar um nome ao torneio, para os amigos o reconhecerem. | Sem nome, “Create and share” está desativado; com nome, o campo aceita-o, é válido e o botão fica ativo (sem criar o torneio). |
+| `UserStoryTest6` | US31 – Como jogador, quero ler as regras do jogo na própria página, para saber como se joga antes de começar. | A secção “Rules of Battleship game online” indica a grelha de 10x10 e a frota de 5, 4, 3, 3 e 2 casas. |
+
+Os cenários foram gravados no Selenium IDE (Firefox) e depois corrigidos e completados com apoio de IA (localizadores, esperas, verificações e código Java). Os testes Java correm em Chrome com Java 23, JUnit 6 e Selenium 4.26.
