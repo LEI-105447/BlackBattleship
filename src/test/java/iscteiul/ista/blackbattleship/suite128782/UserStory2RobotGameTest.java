@@ -44,8 +44,6 @@ public class UserStory2RobotGameTest {
         Configuration.browser = "chrome";
         Configuration.browserSize = "1920x1080";
         Configuration.timeout = 10000;
-        // Não esperar que todos os anúncios/vídeos da página carreguem (o site é pesado e pode exceder o tempo limite)
-        Configuration.pageLoadStrategy = "eager";
         Configuration.pageLoadTimeout = 60000;
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide().screenshots(true).savePageSource(false));
     }

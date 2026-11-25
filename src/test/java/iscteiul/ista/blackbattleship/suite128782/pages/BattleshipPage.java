@@ -6,11 +6,15 @@ import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chromium.ChromiumDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
+import java.util.Map;
 
 import static com.codeborne.selenide.Condition.enabled;
 import static com.codeborne.selenide.Condition.visible;
@@ -73,14 +77,16 @@ public class BattleshipPage {
     private SelenideElement rulesFirstParagraph;
 
     /**
-     * Abre a página do jogo (Page Factory do Selenide) e recusa os cookies, se algum aviso aparecer.
+     * Abre a página do jogo (Page Factory do Selenide), sem publicidade, e recusa os cookies se algum aviso aparecer.
      *
      * @return a página do jogo
      */
     @Step("Abrir a página do jogo Battleship")
     public static BattleshipPage openPage() {
+        blockAdvertising();
         BattleshipPage battleshipPage = open(URL, BattleshipPage.class);
-        ConsentDialog.declineIfShown(8);
+        ConsentDialog.autoDecline();
+        ConsentDialog.declineIfShown(3);
         return battleshipPage;
     }
 
@@ -166,6 +172,35 @@ public class BattleshipPage {
     /** @return o primeiro parágrafo das regras (grelha e frota) */
     public SelenideElement rulesFirstParagraph() {
         return rulesFirstParagraph;
+    }
+
+    /**
+     * Serviços de publicidade, leilões de anúncios, vídeo publicitário e estatística que a página carrega.
+     * Não fazem parte do jogo testado e, num browser novo, podem bloquear o Chrome
+     * ("Timed out receiving message from renderer") e tapar a página com avisos de cookies.
+     */
+    private static final List<String> BLOCKED_URLS = List.of(
+            "*vntsm.com*", "*venatusmedia.com*", "*doubleclick.net*", "*googlesyndication.com*",
+            "*googletagmanager.com*", "*google-analytics.com*", "*imasdk.googleapis.com*", "*adtrafficquality.google*",
+            "*fundingchoicesmessages.google.com*", "*quantcast*", "*consensu.org*", "*inmobi.com*",
+            "*atmtd.com*", "*bids.ws*", "*richaudience.com*", "*360yield*", "*analytics.yahoo.com*", "*3lift.com*",
+            "*casalemedia.com*", "*ingage.tech*", "*adnxs*", "*the-ozone-project.com*", "*optidigital.com*",
+            "*yellowblue.io*", "*adsrvr.org*", "*rubiconproject.com*", "*a-mo.net*", "*pubmatic.com*", "*criteo.com*",
+            "*script.ac*", "*clean.gg*", "*affec.tv*", "*rlcdn.com*", "*creativecdn.com*", "*seedtag.com*",
+            "*blismedia.com*", "*2mdn.net*");
+
+    /**
+     * Abre o browser (ainda sem página) e, através do Chrome DevTools Protocol, impede-o de carregar
+     * os serviços de publicidade em {@link #BLOCKED_URLS}. O próprio jogo (papergames.io) não é afetado.
+     */
+    @Step("Bloquear a publicidade da página (não faz parte do jogo testado)")
+    private static void blockAdvertising() {
+        open(); // abre o Chrome sem carregar nenhuma página
+        WebDriver driver = WebDriverRunner.getWebDriver();
+        if (driver instanceof ChromiumDriver chromium) {
+            chromium.executeCdpCommand("Network.enable", Map.of());
+            chromium.executeCdpCommand("Network.setBlockedURLs", Map.of("urls", BLOCKED_URLS));
+        }
     }
 
     /**

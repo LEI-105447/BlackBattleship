@@ -41,13 +41,14 @@ public class GameRoomPage {
     private SelenideElement confirmAbortButton;
 
     /**
-     * Espera (até 15 segundos) que a sala de jogo carregue.
+     * Espera (até 40 segundos) que a sala de jogo carregue.
+     * O servidor do jogo pode demorar a criar a partida contra o robot, por isso a espera é longa.
      *
      * @return esta página
      */
     @Step("Esperar que a sala de jogo carregue")
     public GameRoomPage waitUntilLoaded() {
-        myBoardHeader.shouldBe(visible, Duration.ofSeconds(15));
+        myBoardHeader.shouldBe(visible, Duration.ofSeconds(40));
         return this;
     }
 
